@@ -1,23 +1,24 @@
 package io.github.dailystruggle.rtp.common.config;
 
 import io.github.dailystruggle.rtp.bukkit.RTPBukkitPlugin;
-import io.github.dailystruggle.rtp.common.config.files.Page;
+import io.github.dailystruggle.rtp.common.config.files.Pane;
 import org.bukkit.entity.Player;
 
 public class GuiManager {
     public static void openFromID(Player player, String id) {
-        RTPBukkitPlugin.configManager.getFromID(id).ifPresentOrElse(page -> {
-            openFromPage(player, page);
+        RTPBukkitPlugin.configManager.getFromID(id).ifPresentOrElse(pane -> {
+            openFromPane(player, pane);
         }, () -> {
-            player.sendMessage("Page not found: " + id);
-            throw new IllegalArgumentException("Page not found: " + id);
+            player.sendMessage("Pane not found: " + id);
+            throw new IllegalArgumentException("Pane not found: " + id);
         });
     }
 
-    public static void openFromPage(Player player, Page page) {
+    public static void openFromPane(Player player, Pane pane) {
         // TODO implement
-        // TODO build gui from page and show to playe
-        // TODO cache gui build based on page instance
+        // TODO build gui from Pane and show to player
+        // TODO cache gui build based on Pane instance
+        // TODO add pages support
 
     }
 }

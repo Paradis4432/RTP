@@ -4,7 +4,7 @@ import co.smashmc.smashlib.okaeri.AbstractConfigManager;
 import eu.okaeri.configs.serdes.OkaeriSerdesPack;
 import eu.okaeri.configs.serdes.SerdesRegistry;
 import io.github.dailystruggle.rtp.common.config.files.Config;
-import io.github.dailystruggle.rtp.common.config.files.Page;
+import io.github.dailystruggle.rtp.common.config.files.Pane;
 import org.bukkit.plugin.Plugin;
 import org.jetbrains.annotations.NotNull;
 
@@ -14,7 +14,7 @@ import java.util.Optional;
 
 public class ConfigManager extends AbstractConfigManager {
     private static Config config;
-    private static Map<String, Page> pages = new HashMap<>();
+    private static Map<String, Pane> panes = new HashMap<>();
 
     public ConfigManager(Plugin plugin) {
         super(plugin, new CustomSerdesPack());
@@ -25,22 +25,22 @@ public class ConfigManager extends AbstractConfigManager {
         config = loadFile(Config.class, "config");
         config.getGuis().forEach(gui -> {
             System.out.println("loading gui: " + gui);
-            pages.put(gui, loadFile(Page.class, gui));
+            panes.put(gui, loadFile(Pane.class, gui));
         });
     }
 
     @Override
     public void reload() {
         super.reload(config);
-        pages.forEach((id, page) -> {
-            System.out.println("reloading page: " + id);
-            page.load(true);
+        panes.forEach((id, pane) -> {
+            System.out.println("reloading pane: " + id);
+            pane.load(true);
         });
     }
 
-    public Optional<Page> getFromID(String id) {
-        if (!pages.containsKey(id)) return Optional.empty();
-        return Optional.of(pages.get(id));
+    public Optional<Pane> getFromID(String id) {
+        if (!panes.containsKey(id)) return Optional.empty();
+        return Optional.of(panes.get(id));
     }
 
     private static class CustomSerdesPack implements OkaeriSerdesPack {

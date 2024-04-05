@@ -14,14 +14,14 @@ import java.util.Arrays;
 import java.util.List;
 
 @Names(strategy = NameStrategy.HYPHEN_CASE, modifier = NameModifier.TO_LOWER_CASE)
-public class Page extends OkaeriConfig {
+public class Pane extends OkaeriConfig {
     /**
      * a container of items, no need for id
      * its the file loaded for each name found in the config
      * automatically created by the ConfigManager
      */
 
-    @Comment("use 'redirect: <page_name>' to open a new gui")
+    @Comment("use 'redirect: <pane_name>' to open a new gui")
     private List<ConfigItem> items = Arrays.asList(new ConfigItem());
 
     private BackgroundItem backgroundItem = new BackgroundItem();
