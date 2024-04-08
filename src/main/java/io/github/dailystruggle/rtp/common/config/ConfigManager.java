@@ -52,8 +52,6 @@ public class ConfigManager extends AbstractConfigManager {
         @Override
         public void register(@NotNull SerdesRegistry registry) {
             registry.register(new ConfigItem());
-            registry.register(new MoveButtons());
-            registry.register(new MoveButtons());
         }
     }
 }

@@ -28,7 +28,6 @@ public class GuiManager {
         gui.setOnGlobalClick(e -> e.setCancelled(true));
 
         StaticPane mainPane = pane.buildStaticPane();
-        pane.getMoveButtons().addToStaticPane(mainPane);
         gui.addPane(mainPane);
 
         StaticPane background = new StaticPane(9, pane.getRows());
