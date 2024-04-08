@@ -1,6 +1,7 @@
 package io.github.dailystruggle.rtp.common.config;
 
 import co.smashmc.smashlib.items.ItemBuilder;
+import com.github.stefvanschie.inventoryframework.pane.StaticPane;
 import com.github.stefvanschie.inventoryframework.pane.util.Slot;
 import eu.okaeri.configs.schema.GenericsDeclaration;
 import eu.okaeri.configs.serdes.DeserializationData;
@@ -42,6 +43,10 @@ public class MoveButtons implements ObjectSerializer<MoveButtons> {
 
     public @NotNull Slot getBackSlot() {
         return fromIndex(backSlot);
+    }
+
+    public void addToStaticPane(StaticPane staticPane) {
+        // TODO implement
     }
 
     @Override

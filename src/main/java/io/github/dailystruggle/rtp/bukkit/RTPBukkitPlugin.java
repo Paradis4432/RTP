@@ -14,6 +14,7 @@ import io.github.dailystruggle.rtp.bukkit.tools.softdepends.PAPI_expansion;
 import io.github.dailystruggle.rtp.bukkit.tools.softdepends.VaultChecker;
 import io.github.dailystruggle.rtp.common.config.ConfigManager;
 import io.github.dailystruggle.rtp.common.RTP;
+import io.github.dailystruggle.rtp.common.config.GuiManager;
 import io.github.dailystruggle.rtp.common.configuration.ConfigParser;
 import io.github.dailystruggle.rtp.common.configuration.Configs;
 import io.github.dailystruggle.rtp.common.configuration.enums.MessagesKeys;
@@ -90,7 +91,7 @@ public final class RTPBukkitPlugin extends JavaPlugin {
      */
     @Override
     public void onEnable() {
-        metrics = new Metrics(this, 12277);
+        //metrics = new Metrics(this, 12277);
 
         if (instance == null) {
             instance = this;
@@ -124,6 +125,7 @@ public final class RTPBukkitPlugin extends JavaPlugin {
 
         // smash
         Objects.requireNonNull(getCommand("brtp")).setExecutor(new BRTPCmdBukkit());
+
         configManager = new ConfigManager(this);
         configManager.load();
 

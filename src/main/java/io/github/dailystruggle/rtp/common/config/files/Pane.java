@@ -1,7 +1,12 @@
 package io.github.dailystruggle.rtp.common.config.files;
 
+import co.smashmc.smashlib.actions.PlayerActionHolder;
 import co.smashmc.smashlib.items.BackgroundItem;
+import co.smashmc.smashlib.items.ItemBuilder;
 import co.smashmc.smashlib.messages.Colors;
+import com.github.stefvanschie.inventoryframework.gui.GuiItem;
+import com.github.stefvanschie.inventoryframework.pane.StaticPane;
+import com.github.stefvanschie.inventoryframework.pane.util.Slot;
 import eu.okaeri.configs.OkaeriConfig;
 import eu.okaeri.configs.annotation.Comment;
 import eu.okaeri.configs.annotation.NameModifier;
@@ -9,6 +14,8 @@ import eu.okaeri.configs.annotation.NameStrategy;
 import eu.okaeri.configs.annotation.Names;
 import io.github.dailystruggle.rtp.common.config.ConfigItem;
 import io.github.dailystruggle.rtp.common.config.MoveButtons;
+import org.bukkit.Material;
+import org.bukkit.entity.Player;
 
 import java.util.Arrays;
 import java.util.List;
@@ -28,7 +35,7 @@ public class Pane extends OkaeriConfig {
 
     private String title = "Title";
 
-    private int size = 54;
+    private int rows = 6;
 
     private MoveButtons moveButtons = new MoveButtons();
 
@@ -45,11 +52,17 @@ public class Pane extends OkaeriConfig {
         return Colors.colorAll(title);
     }
 
-    public int getSize() {
-        return size;
+    public int getRows() {
+        return rows;
     }
 
     public MoveButtons getMoveButtons() {
         return moveButtons;
+    }
+
+    public StaticPane buildStaticPane() {
+        StaticPane staticPane = new StaticPane(9, getRows());
+        items.forEach(item -> item.getGuiItems().forEach((slot, guiItem) -> staticPane.addItem(guiItem, Slot.fromIndex(slot))));
+        return staticPane;
     }
 }

@@ -23,18 +23,22 @@ public class ConfigManager extends AbstractConfigManager {
     @Override
     public void load() {
         config = loadFile(Config.class, "config");
-        config.getGuis().forEach(gui -> {
-            System.out.println("loading gui: " + gui);
-            panes.put(gui, loadFile(Pane.class, gui));
-        });
+        loadPanes();
     }
 
     @Override
     public void reload() {
         super.reload(config);
-        panes.forEach((id, pane) -> {
-            System.out.println("reloading pane: " + id);
-            pane.load(true);
+
+        panes.clear();
+        loadPanes();
+        panes.forEach((id, pane) -> pane.load(true));
+    }
+
+    private void loadPanes() {
+        config.getGuis().forEach(gui -> {
+            System.out.println("loading gui: " + gui);
+            panes.put(gui, loadFile(Pane.class, "/guis/" + gui));
         });
     }
 
