@@ -17,6 +17,11 @@ commands:
     permission: rtp.use
     usage: |
       /wild
+  brtp:
+    description: Open gui to select a biome to teleport
+    permission: rtp.use
+    usage: |
+      /brtp
 
 permissions:
   rtp.see:

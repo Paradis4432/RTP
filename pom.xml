@@ -6,7 +6,7 @@
 
     <groupId>io.github.dailystruggle</groupId>
     <artifactId>RTP</artifactId>
-    <version>2.0.15</version>
+    <version>2.0.18</version>
     <packaging>jar</packaging>
 
     <name>RTP</name>
@@ -130,8 +130,8 @@
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>3.8.1</version>
                 <configuration>
-                    <source>1.8</source>
-                    <target>1.8</target>
+                    <source>9</source>
+                    <target>9</target>
                 </configuration>
             </plugin>
             <plugin>
@@ -268,6 +268,16 @@
             <id>codemc</id>
             <url>https://repo.codemc.io/repository/maven-public/</url>
         </repository>
+
+
+        <repository>
+            <id>maven-local</id>
+            <url>file://${user.home}/.m2/repository</url>
+        </repository>
+        <repository>
+            <id>okaeri-repo</id>
+            <url>https://storehouse.okaeri.eu/repository/maven-public/</url>
+        </repository>
     </repositories>
 
     <dependencies>
@@ -385,5 +395,32 @@
             <version>1.2.217</version>
             <scope>provided</scope>
         </dependency>
+
+
+        <dependency>
+            <groupId>com.github.stefvanschie.inventoryframework</groupId>
+            <artifactId>IF</artifactId>
+            <version>0.10.9</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>co.smashmc</groupId>
+            <artifactId>SmashLib</artifactId>
+            <version>2.1.12</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>eu.okaeri</groupId>
+            <artifactId>okaeri-configs-yaml-bukkit</artifactId>
+            <version>5.0.0-beta.5</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>eu.okaeri</groupId>
+            <artifactId>okaeri-configs-serdes-bukkit</artifactId>
+            <version>5.0.0-beta.5</version>
+            <scope>provided</scope>
+        </dependency>
+
     </dependencies>
 </project>
