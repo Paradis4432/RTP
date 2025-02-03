@@ -17,6 +17,7 @@ import io.github.dailystruggle.rtp.common.serverSide.substitutions.RTPEconomy;
 import io.github.dailystruggle.rtp.common.serverSide.substitutions.RTPPlayer;
 import io.github.dailystruggle.rtp.common.serverSide.substitutions.RTPWorld;
 import io.github.dailystruggle.rtp.common.tasks.teleport.SetupTeleport;
+import io.papermc.lib.PaperLib;
 import org.apache.commons.lang.IllegalClassException;
 import org.bukkit.Bukkit;
 
@@ -60,7 +61,7 @@ public interface RTPCmd extends BaseRTPCmd {
             return true;
         }
 
-        //------------------------D--------------------------------------------------------------------------------------
+        //--------------------------------------------------------------------------------------------------------------
         //guard command perms with custom message
         if (!sender.hasPermission("rtp.use")) {
             RTP.serverAccessor.sendMessage(senderId, MessagesKeys.noPerms);
